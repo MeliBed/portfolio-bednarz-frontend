@@ -1,0 +1,18 @@
+[{	"institucion": "Facultad de Filosofía y Letras - UBA",
+	"descripcion": "Licenciada en Cs. Antropológicas",
+	"inicio": "2002",
+	"fin": "2015",
+	"logo": "assets/Imagenes/logo-filo-uba.jpg"
+}, {
+	"institucion": "Facultad de Filosofía y Letras - UBA",
+	"descripcion": "Profesora en Cs. Antropológicas",
+	"inicio": "2013",
+	"fin": "2020",
+	"logo": "assets/Imagenes/logo-filo-uba.jpg"
+}, {
+	"institucion": "Argentina Programa",
+	"descripcion": "#YoProgramo",
+	"inicio": "2021",
+	"fin": "2022",
+	"logo": "assets/Imagenes/AP en colores.PNG"
+}]

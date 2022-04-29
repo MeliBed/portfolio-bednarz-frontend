@@ -1,0 +1,105 @@
+<section id="laboral" name="laboral">
+    <!--DESCRIPCIÓN EXPERIENCIA LABORAL-->
+     <div class="container seccioninterno">
+       <div class="container">
+         <div class="row edicion">
+           <div class="col-lg-3">
+             <h3>EXPERIENCIA LABORAL</h3>            
+           </div>
+          <div class="col-lg-3">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalexperiencia">
+              <img src="https://img.icons8.com/material-outlined/24/000000/add.png"/>
+            </button> 
+          </div> <!--COL-->  
+         </div> <!--row--> 
+     <br> <br>
+         <ul>
+           <li *ngFor="let experiencia of experienciaLista">
+        <div class="row edicion">           
+          <div class="col-lg-3">
+            <img [src]="experiencia.logo" height="50" width="250"/>
+          </div>      
+          <div class="col-lg-3">
+            <h3>{{experiencia.tarea}}</h3>
+            <h4>{{experiencia.institucion}}</h4>
+             <p><time>{{experiencia.inicio}}</time> -<time>{{experiencia.fin}}</time></p>
+             <p>{{experiencia.descripcion}}</p>
+          </div>        
+          <div class="col-lg-3">     
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalexperiencia">
+              <img src="https://img.icons8.com/material-outlined/24/000000/pencil--v1.png"/>
+            </button> 
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalborrarexp"><img src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"/></button>
+          </div>
+            </div> <!--row-->
+       <br><hr> <br>
+       </li>
+         </ul>
+    </div><!--/.row -->
+    </div>  
+    </section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalexperiencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Experiencia laboral</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Puesto</label>
+            <input type="text" class="form-control" id="tarea" placeholder="">
+          </div><br>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Institución</label>
+            <input type="text" class="form-control" id="institucion" placeholder="">
+          </div><br>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Logo de la institución</label>
+            <input type="file" class="form-control-file" id="logo">
+          </div><br>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Fecha de Inicio</label>
+            <input type="text" class="form-control" id="inicio" rows="3">
+          </div><br>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Fecha de Finalización</label>
+            <input type="text" class="form-control" id="fin" rows="3">
+          </div><br>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Tareas realizadas</label>
+            <textarea class="form-control" id="descripcion" rows="3"></textarea>
+          </div><br>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Borrar -->
+<div class="modal fade" id="modalborrarexp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Borrar elemento</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <h5>Se borrará el elemento seleccionado ¿Está seguro?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>

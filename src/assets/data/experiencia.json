@@ -1,0 +1,17 @@
+[{
+	"tarea": "ADMINISTRADORA WEB AAPRA",
+	"institucion": "Asociación de Arqueólogos Profesionales de la Argentina",
+	"descripcion": "Administración de la página web de la Asociación de Arqueólogos Profesionales de la Argentina",
+	"inicio": "2022",
+	"fin": "A la fecha",
+	"logo": "assets/Imagenes/Aapra_Logo.jpg"
+},
+{
+	"tarea": "Becaria CONICET",
+	"institucion": "CONICET",
+	"descripcion": "Tareas de investigación arqueológica",
+	"inicio": "2015",
+	"fin": "2020",
+	"logo": "assets/Imagenes/CONICET_Logo.png"
+}
+]

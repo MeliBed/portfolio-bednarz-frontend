@@ -1,0 +1,94 @@
+<section id="proyectos" name="proyectos">
+    <!--PROYECTOS -->
+    <div class="container seccioninterno">
+      <div class="container">
+      <div class="row edicion">
+        <div class="col-lg-3">
+          <h3>PROYECTOS</h3>
+        </div>
+        <div class="col-lg-3">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalproyectos">
+            <img src="https://img.icons8.com/material-outlined/24/000000/add.png"/>
+          </button>  
+        </div> <!--COL-->  
+       </div> <!--row-->
+      <br> <br>
+      <ul>
+        <li *ngFor="let proyecto of proyectosLista">
+      <div class="row edicion">
+        <div class="col-lg-3">
+          <p><a href={{proyecto.link}}><img class="img-fluid" [src]="proyecto.imagen" alt=""></a></p>
+        </div>
+        <div class="col-lg-3">
+          <p>{{proyecto.titulo}}</p>
+          <p>{{proyecto.descripcion}}<br/><br/></p>
+        </div> 
+        <div class="col-lg-3"> 
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalproyectos">
+            <img src="https://img.icons8.com/material-outlined/24/000000/pencil--v1.png"/>
+          </button> 
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalborrarpro"><img src="https://img.icons8.com/material-outlined/24/000000/pencil--v1.png"/></button>
+          <a href="#" class="btn btn-light"><img src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"/></a>     
+        </div>
+      </div> <!--/.row -->
+      <br><br>
+      </li>   
+      </ul>
+    </div><!--/.container -->
+  </div><!--/.container seccioninterno -->
+  </section>
+
+
+  <div class="modal fade" id="modalproyectos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar un nuevo proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Título del proyecto</label>
+              <input type="text" class="form-control" id="tituloproyecto" placeholder="">
+            </div><br>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descripción del proyecto</label>
+              <textarea class="form-control" id="descripcionproyecto" rows="3"></textarea>
+            </div> <br>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Link al proyecto</label>
+              <input type="text" class="form-control" id="linkproyecto" placeholder="">
+            </div> <br>
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Imagen del proyecto</label>
+              <input type="file" class="form-control-file" id="imagenproyecto">
+            </div> 
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal Borrar -->
+<div class="modal fade" id="modalborrarpro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Borrar elemento</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <h5>Se borrará el elemento seleccionado ¿Está seguro?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
