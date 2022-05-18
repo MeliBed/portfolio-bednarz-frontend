@@ -8,8 +8,12 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
 import { SoftSkillsComponent } from './componentes/soft-skills/soft-skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { PortfolioService } from './servicios/portfolio.service';
+import { EncabezadoService } from './servicios/encabezado.service';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './componentes/login/login.component';
+import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
+import { RegisterComponent } from './componentes/register/register.component';
 
 
 @NgModule({
@@ -19,12 +23,17 @@ import { HttpClientModule } from '@angular/common/http'
     EducacionComponent,
     ExperienciaLaboralComponent,
     SoftSkillsComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    LoginComponent,
+    PortfolioComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

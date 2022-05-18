@@ -1,0 +1,18 @@
+[{"acreditador": "Accenture",
+"skill": "Autoconfianza - Seguridad en sí mismo",
+"nivel": "100",
+"denominacion":"Máster (Nivel 6)"},
+{"acreditador": "Accenture",
+    "skill": "Comunicación - Expresión escrita",
+    "nivel": "80",
+    "denominacion":"Avanzado (Nivel 5)"},
+    {"acreditador": "Accenture",
+        "skill": "Flexibilidad",
+        "nivel": "80",
+        "denominacion":"Avanzado (Nivel 5)"},
+    {"acreditador": "De prueba",
+        "skill": "Adaptación",
+        "nivel": "30",
+        "denominacion":"Inicial (Nivel 2"}
+
+]

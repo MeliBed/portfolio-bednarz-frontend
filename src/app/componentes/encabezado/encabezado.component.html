@@ -1,35 +1,42 @@
 <section id="acercade" name="acercade">
-    <div id="intro" class="container">
-      <div class="container edicion">
-       <h2>{{encabezadoElemento.titulo}} {{encabezadoElemento.nombre}}</h2>
+  <ul>
+    <li *ngFor="let encabezado of encabezadoList; let i = index">
+  <div class="row edicion"> 
+    <!--<button type="button" class="btn hidden" (click)="onNewEncabezado()"></button>-->
+      <div id="intro" class="container">
+     <div class="container edicion">
+       <h2>{{encabezado.titulo}} {{encabezado.nombre}}</h2>
         <p>
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarencabezado">
+          <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarencabezado" (click)=" onEditarEncabezado(i)"> 
             <img src="https://img.icons8.com/material-outlined/24/000000/pencil--v1.png"/>
           </button>        </p>
       </div>
 
        <div class="container" id="descripcion">   
           <div class="col-6 col-lg-4" id="avatar">
-            <img [src]="encabezadoElemento.foto_perfil" class="avatar img-fluid" width="100" height="100" alt="Foto de perfil">
+            <img [src]="encabezado.foto" class="avatar img-fluid" width="100" height="100" alt="Foto de perfil">
           </div>
           
           <div class="col-sm-6 col-lg-8">
            <h3>SOBRE MÍ</h3>
             <br> <br> <br> <br>
-            <p>{{encabezadoElemento.descripcion}} </p>
+            <p>{{encabezado.descripcion}} </p>
             <br><br><br><br><br>
-            <p><img src="https://img.icons8.com/material-outlined/24/000000/worldwide-location.png"/> {{encabezadoElemento.ubicacion}} </p> 
+            <p><img src="https://img.icons8.com/material-outlined/24/000000/worldwide-location.png"/> {{encabezado.ubicacion}} </p> 
             <br>
             <p>Contacto: 
-              <a [href]="encabezadoElemento.contacto"><img src="https://img.icons8.com/material-outlined/24/000000/gmail-new.png"/></a>  
-              <a [href]="encabezadoElemento.linkedin"><img src="https://img.icons8.com/material-outlined/24/000000/linkedin--v1.png"/></a>
-              <a [href]="encabezadoElemento.github"><img src="https://img.icons8.com/material-outlined/24/000000/github.png"/></a>
+              <a [href]="encabezado.contacto"><img src="https://img.icons8.com/material-outlined/24/000000/gmail-new.png"/></a>  
+              <a [href]="encabezado.linkedin" target=”_blank”><img src="https://img.icons8.com/material-outlined/24/000000/linkedin--v1.png"/></a>
+              <a [href]="encabezado.github" target=”_blank”><img src="https://img.icons8.com/material-outlined/24/000000/github.png"/></a>
               </p> <br> 
           </div>
 
         </div><!--/container -->
-    </div><!--/ #intro -->
-</section>
+     </div><!--/ #intro -->
+  </div>
+    </li>
+  </ul>
+    </section>
 
 <div class="modal fade" id="editarencabezado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -39,41 +46,43 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
+       <form [formGroup]="encabezadoForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id" name="encabezadoId" value="">
+            <div class="form-group">
             <label for="exampleFormControlInput1">Título</label>
-            <input type="text" class="form-control" id="titulo" placeholder="Título">
+            <input type="text" class="form-control" formControlName="titulo" placeholder="Título">
           </div> <br>
           <div class="form-group">
             <label for="exampleFormControlInput1">Nombre</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
           </div><br>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción personal</label>
-            <textarea class="form-control" id="descripcionpersonal" rows="3"></textarea>
+            <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
           </div><br>
       <div class="form-group">
         <label for="exampleFormControlInput1">Ubicación</label>
-        <input type="text" class="form-control" id="ubicacion" placeholder="Ubicación">
+        <input type="text" class="form-control" formControlName="ubicacion" placeholder="Ubicación">
       </div> <br>
       <div class="form-group">
         <label for="exampleFormControlInput1">Correo electrónico</label>
-        <input type="email" class="form-control" id="email" placeholder="usuario@ejemplo.com">
+        <input type="email" class="form-control" formControlName="contacto" placeholder="usuario@ejemplo.com">
       </div><br>
       <div class="form-group">
         <label for="exampleFormControlInput1">LinkedIn</label>
-        <input type="text" class="form-control" id="linkedin" placeholder="Cuenta de LinkedIn">
+        <input type="text" class="form-control" formControlName="linkedin" placeholder="Cuenta de LinkedIn">
       </div><br>
       <div class="form-group">
         <label for="exampleFormControlInput1">GitHub</label>
-        <input type="text" class="form-control" id="github" placeholder="Repositorio de GitHub">
+        <input type="text" class="form-control" formControlName="github" placeholder="Repositorio de GitHub">
       </div><br>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
    </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Cuardar</button>
-      </div>
+     
     </div>
   </div>
 </div>

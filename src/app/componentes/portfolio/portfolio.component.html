@@ -1,0 +1,21 @@
+<header> 
+  <nav class="navbar navbar-dark  mb-5 fixed-top" style="background-color: rgba(0, 53, 142, 0.913);">
+   <div class="container-fluid">
+     <a class="navbar-brand" href="#">
+       <img src="assets\Imagenes\APLogo-20-20.png" alt="Logo Argentina Programa" width="75" height="60" class="d-inline-block align-text-center">
+       Portfolio Profesional
+     </a>
+
+     <button *ngIf="!isUserLogged" class="btn btn-outline-success my-2 my-sm-0" routerLink="/login">Login</button>
+     <button *ngIf="isUserLogged" class="btn btn-outline-success my-2 my-sm-0" routerLink="/logout" (click)="logout()">Logout</button>
+  
+   </div>
+ </nav>
+</header>
+  
+  <app-encabezado></app-encabezado>
+  <app-experiencia-laboral></app-experiencia-laboral>
+  <app-educacion></app-educacion>
+  <app-soft-skills></app-soft-skills>
+  <app-proyectos></app-proyectos>
+  
