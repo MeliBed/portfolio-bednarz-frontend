@@ -14,6 +14,7 @@ export class ProyectosComponent implements OnInit {
   proyectosLista:Proyecto [] = [];
   isUserLogged: Boolean = false;
   proyectoForm: FormGroup;
+  imagenes:string[] = ["../assets/Imagenes/Index_CodoACodo.PNGg"];
 
   constructor(
     private datosProyectos:ProyectosService,
@@ -69,6 +70,7 @@ export class ProyectosComponent implements OnInit {
       this.datosProyectos.agregarNuevoProyecto(proyecto).subscribe(
         (newProyecto: Proyecto) => {
           this.proyectosLista.push(newProyecto);
+          this.reloadData();
         }
       );
     } else {
@@ -82,6 +84,7 @@ export class ProyectosComponent implements OnInit {
 
   onNewProyecto() {
     this.clearForm();
+    this.proyectoForm.reset(this.proyectoForm.value);
   }
 
   onEditProyecto(index: number) {

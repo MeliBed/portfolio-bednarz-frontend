@@ -8,7 +8,7 @@
         </div>
         <div class="col-lg-3">
           <button *ngIf="isUserLogged"  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalproyectos" (click)="onNewProyecto()">
-            <img src="https://img.icons8.com/material-outlined/24/000000/add.png"/></button>  
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/add.png"/></button>  
         </div> <!--COL-->  
        </div> <!--row-->
       <br> <br>
@@ -19,14 +19,14 @@
           <p><a href={{proyecto.link}} target="_blank"><img class="img-fluid" [src]="proyecto.imagen" alt=""></a></p>
         </div>
         <div class="col-lg-3">
-          <p>{{proyecto.titulo}}</p>
-          <p>{{proyecto.descripcion}}<br/><br/></p>
+          <h3>{{proyecto.titulo}}</h3>
+          <h4>{{proyecto.descripcion}}<br/><br/></h4>
         </div> 
         <div  class="col-lg-3"> 
           <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalproyectos" (click)="onEditProyecto(i)">
-            <img src="https://img.icons8.com/material-outlined/24/000000/pencil--v1.png"/>
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/pencil--v1.png"/>
           </button> 
-          <button *ngIf="isUserLogged" type="button" class="btn" (click)="onDeleteProyecto(i)"><img src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"/></button> 
+          <button *ngIf="isUserLogged" type="button" class="btn" (click)="onDeleteProyecto(i)"><img src="https://img.icons8.com/material-outlined/24/ffffff/trash--v1.png"/></button> 
         <!--data-bs-toggle="modal" data-bs-target="#modalborrarpro"-->
         </div>
       </div> <!--/.row -->
@@ -60,9 +60,11 @@
               <input type="text" class="form-control" formControlName="link" placeholder="">
             </div> <br>
             <div class="form-group">
-              <label for="exampleFormControlInput2">Imagen del proyecto</label>
-              <input type="text" class="form-control" formControlName="imagen" placeholder="Nombre del archivo">
-            </div><br>
+              <label for="exampleFormControlSelect1">Imagen</label>
+              <select class="form-control" formControlName="imagen" id="imagen" >
+                <option [value]="item" *ngFor="let item of imagenes">{{item}}</option>
+              </select>
+            </div>
             <input type="hidden" formControlName="id" name="proyectosId" value="">
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

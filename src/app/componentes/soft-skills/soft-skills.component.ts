@@ -67,6 +67,7 @@ private loadForm(skill: Skill) {
 
 onNewSkill() {
   this.clearForm();
+  this.skillForm.reset(this.skillForm.value);
 }
 
 onEditSkill(index: number) {
@@ -91,6 +92,7 @@ onSubmit (){
     this.datosSkills.agregarNuevaSkill(skill).subscribe(
       (newSkill: Skill) => {
         this.skillsLista.push(newSkill);
+        this.reloadData();
       }
     );
   } else {

@@ -75,6 +75,7 @@ export class ExperienciaLaboralComponent implements OnInit {
 
   onNewExperiencia() {
     this.clearForm();
+    this.experienciaForm.reset(this.experienciaForm.value);
   }
 
   onEditExperiencia(index: number) {
@@ -99,6 +100,7 @@ export class ExperienciaLaboralComponent implements OnInit {
       this.datosExperiencia.agregarNuevaExperiencia(experiencia).subscribe(
         (newExperiencia: Experiencia) => {
           this.experienciaLista.push(newExperiencia);
+          this.reloadData();
         }
       );
     } else {

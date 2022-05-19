@@ -7,8 +7,8 @@
              <h3>EDUCACIÓN</h3>
            </div>
            <div  class="btn-edit col-lg-3"> <!---->
-            <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#educacionForm" (click)="onNewEducation()">
-              <img src="https://img.icons8.com/material-outlined/24/000000/add.png"/>
+            <button *ngIf="isUserLogged" type="button" class="btn btn-default" data-bs-toggle="modal" data-bs-target="#educacionForm" (click)="onNewEducation()">
+              <img src="https://img.icons8.com/material-outlined/24/ffffff/add.png"/>
             </button> 
            </div> <!--COL-->  
             </div> <!--row--> 
@@ -28,8 +28,8 @@
 
          <div class=" col-lg-3 data-control"> <!---->
           <button *ngIf="isUserLogged"  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#educacionForm" (click)="onEditEducation(i)">
-            <img src="https://img.icons8.com/material-outlined/24/000000/pencil--v1.png"/>
-          </button>  <button *ngIf="isUserLogged"  type="button" class="btn" (click)="onDeleteEducation(i)">  <img src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"/></button>
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/pencil--v1.png"/>
+          </button>  <button *ngIf="isUserLogged"  type="button" class="btn" (click)="onDeleteEducation(i)">  <img src="https://img.icons8.com/material-outlined/24/ffffff/trash--v1.png"/></button>
           </div> <!--col-->
       </div> <!--row-->   
 
@@ -54,29 +54,62 @@
             
         <div class="form-group">
             <label for="exampleFormControlInput1">Institución</label>
-            <input type="text" class="form-control" formControlName="institucion" placeholder="">
+            <input type="text" class="form-control"  formControlName="institucion" placeholder="" name="institucion"
+            [ngClass]="{'is-invalid': this.educationForm.get('institucion')?.errors && this.educationForm.get('institucion')?.touched, 'is-valid': 
+            !this.educationForm.get('institucion')?.errors && this.educationForm.get('institucion')?.touched }" 
+            class="form-control" required>
+            <div *ngIf="this.educationForm.get('institucion')?.errors && this.educationForm.get('institucion')?.touched">
+                <span *ngIf="this.educationForm.get('institucion')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+                <span *ngIf="this.educationForm.get('institucion')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 2 caracteres.</span>             
+              </div> 
           </div><br>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Logo de la Institución</label>
-            <select class="form-control" formControlName="logo" id="imagen" >
-              <option [value]="item" *ngFor="let item of imagenes">{{item}}</option>
-            </select>
-          </div>
-          <div class="form-group">
             <label for="exampleFormControlTextarea1">Titulación</label>
-            <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
+            <textarea class="form-control" formControlName="descripcion" rows="3" name="descripcion"
+            [ngClass]="{'is-invalid': this.educationForm.get('descripcion')?.errors && this.educationForm.get('descripcion')?.touched, 'is-valid': 
+            !this.educationForm.get('descripcion')?.errors && this.educationForm.get('descripcion')?.touched }" 
+            class="form-control" required>
+          </textarea>
+            <div *ngIf="this.educationForm.get('descripcion')?.errors && this.educationForm.get('descripcion')?.touched">
+                <span *ngIf="this.educationForm.get('descripcion')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+                <span *ngIf="this.educationForm.get('descripcion')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 2 caracteres.</span>                           </div>
           </div><br>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Fecha de Inicio</label>
-            <input type="text" class="form-control" formControlName="inicio" rows="3">
+            <input type="text" class="form-control" formControlName="inicio" rows="3" name="inicio"
+            [ngClass]="{'is-invalid': this.educationForm.get('inicio')?.errors && this.educationForm.get('inicio')?.errors && this.educationForm.get('inicio')?.touched, 'is-valid': 
+            !this.educationForm.get('inicio')?.errors && this.educationForm.get('inicio')?.touched }" 
+            class="form-control" required>
+            <div *ngIf="this.educationForm.get('inicio')?.errors && this.educationForm.get('inicio')?.touched">
+              <span *ngIf="this.educationForm.get('inicio')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+              <span *ngIf="this.educationForm.get('inicio')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 4 caracteres.</span>                  
+            </div> 
           </div><br>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Fecha de Finalización</label>
-            <input type="text" class="form-control" formControlName="fin" rows="3">
+            <input type="text" class="form-control" formControlName="fin" rows="3" name="fin"
+            [ngClass]="{'is-invalid': this.educationForm.get('fin')?.errors &&  this.educationForm.get('fin')?.touched, 'is-valid':!this.educationForm.get('fin')?.errors && this.educationForm.get('fin')?.touched }" 
+            class="form-control" required>
+            <div *ngIf="this.educationForm.get('fin')?.errors && this.educationForm.get('fin')?.touched">
+              <span *ngIf="this.educationForm.get('fin')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+              <span *ngIf="this.educationForm.get('fin')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 4 caracteres.</span>                  
+            </div> 
           </div><br>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Logo de la Institución</label>
+            <select class="form-control" formControlName="logo" id="imagen" name="logo"
+            [ngClass]="{'is-invalid': this.educationForm.get('logo')?.errors && this.educationForm.get('logo')?.touched, 'is-valid': 
+            !this.educationForm.get('logo')?.errors && this.educationForm.get('logo')?.touched }" 
+            class="form-control" required>
+              <option [value]="item" *ngFor="let item of imagenes">{{item}}</option>
+            </select>
+            <div *ngIf="this.educationForm.get('logo')?.errors && this.educationForm.get('logo')?.touched">
+              <span *ngIf="this.educationForm.get('logo')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+          </div> 
+          </div>
            <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="educationForm.invalid">Guardar</button>
       </div>
         </form>
       </div>

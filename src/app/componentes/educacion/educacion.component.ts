@@ -15,6 +15,7 @@ export class EducacionComponent implements OnInit {
   educacionLista:Educacion[] = [];
   isUserLogged: Boolean = false;
   educationForm: FormGroup;
+  
   imagenes:string[] = [ "../assets/Imagenes/AP en colores.PNG",
                         "../assets/Imagenes/CodoACodo_Logo.png", 
                         "../assets/Imagenes/logo-filo-uba.jpg",
@@ -73,12 +74,14 @@ export class EducacionComponent implements OnInit {
       })
   }
 
+
   onSubmit (){
     let educacion: Educacion = this.educationForm.value;
     if (this.educationForm.get('id')?.value == '') {
       this.datosEducacion.agregarNuevaEducacion(educacion).subscribe(
         (newEducation: Educacion) => {
           this.educacionLista.push(newEducation);
+          this.reloadData();
         }
       );
     } else {
@@ -87,11 +90,14 @@ export class EducacionComponent implements OnInit {
           this.reloadData();
         }
       )
-    }
+      }
   }
   
   onNewEducation() {
+   
     this.clearForm();
+    this.educationForm.reset(this.educationForm.value);
+    
   }
 
   onEditEducation(index: number) {

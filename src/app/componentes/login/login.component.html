@@ -16,7 +16,12 @@
         <div class="row mb-3">
             <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-10">
-                <input type="password" placeholder="Ingrese su contraseña" name="password" formControlName="password" class="form-control" required>
+                <input type="password" placeholder="Ingrese su contraseña" name="password" formControlName="password" class="form-control" 
+                [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched }" class="form-control"
+                required>
+                <div *ngIf="Password?.errors && Password?.touched">
+                    <span *ngIf="Password?.hasError('required')" class="text-danger">El password es requerido.</span>  
+                </div>
             </div>
         </div>
 
