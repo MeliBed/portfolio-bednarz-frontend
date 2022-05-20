@@ -29,8 +29,8 @@ export class ExperienciaLaboralComponent implements OnInit {
                   id: [''],
                   institucion: ['', [Validators.required, Validators.minLength(2)]],
                   logo: ['', [Validators.required]],
-                  descripcion: ['', [Validators.required, Validators.minLength(2)]],
-                  tarea: ['', [Validators.required, Validators.minLength(2)]],
+                  descripcion: ['', [Validators.required, Validators.minLength(5)]],
+                  tarea: ['', [Validators.required, Validators.minLength(5)]],
                   inicio: ['', [Validators.required, Validators.minLength(4)]],
                   fin: ['', [Validators.required, Validators.minLength(4)]],
                 });
@@ -110,6 +110,7 @@ export class ExperienciaLaboralComponent implements OnInit {
         }
       )
     }
+    this.reloadData();
   }
 
 }

@@ -22,10 +22,10 @@ export class ProyectosComponent implements OnInit {
     private formBuilder: FormBuilder) {
       this.proyectoForm = this.formBuilder.group({
         id: [''],
-        descripcion: ['', [Validators.required, Validators.minLength(2)]],
+        descripcion: ['', [Validators.required, Validators.minLength(5)]],
         titulo: ['', [Validators.required, Validators.minLength(4)]],
-        imagen: ['', [Validators.required, Validators.minLength(4)]],
-        link: ['', [Validators.required, Validators.minLength(4)]],  
+        imagen: ['', [Validators.required]],
+        link: ['', [Validators.required, Validators.minLength(10)]],  
       });
      }
 
@@ -80,6 +80,7 @@ export class ProyectosComponent implements OnInit {
         }
       )
     }
+    this.reloadData();
   }
 
   onNewProyecto() {

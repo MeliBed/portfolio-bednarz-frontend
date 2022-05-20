@@ -15,7 +15,7 @@ export class EncabezadoComponent implements OnInit {
   encabezadoList:Encabezado[] = [];
   isUserLogged: Boolean = false;
   encabezadoForm: FormGroup;
-
+ 
   
 
   constructor(private datosEncabezado:EncabezadoService,
@@ -23,11 +23,11 @@ export class EncabezadoComponent implements OnInit {
               private formBuilder: FormBuilder,) {
     this.encabezadoForm = this.formBuilder.group({
       id: [''],
-      titulo: ['', [Validators.required]],
-      nombre: ['', [Validators.required]],
+      titulo: ['', [Validators.required, Validators.minLength(2)]],
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
       foto: ['', [Validators.required]],
-      descripcion: ['', [Validators.required]],
-      ubicacion: ['', [Validators.required]],
+      descripcion: ['', [Validators.required, Validators.minLength(10)]],
+      ubicacion: ['', [Validators.required, Validators.minLength(5)]],
       contacto: ['', [Validators.required, Validators.email]],
       linkedin: ['', [Validators.required]],
       github: ['', [Validators.required]],
@@ -65,28 +65,10 @@ export class EncabezadoComponent implements OnInit {
   onEditarEncabezado(index: number) {
     let encabezado: Encabezado = this.encabezadoList[index];
     this.loadForm(encabezado);
+    this.encabezadoForm.reset(this.encabezadoForm.value);
 
   }
   
-  /*onNewEncabezado() {
-    this.clearForm();
-  }*/
-
-  /*private clearForm() {
-    this.encabezadoForm.setValue({
-      id: '',
-      titulo: '',
-      nombre: '',
-      foto: '',
-      descripcionpersonal: '',
-      ubicacion: '',
-      email: '',
-      linkedin: '',
-      github: '',
-    })
-  }*/
-
-
   onSubmit() {
    
     console.log(this.encabezadoForm.value)
@@ -96,7 +78,9 @@ export class EncabezadoComponent implements OnInit {
           this.reloadData();
         }
       )
+      this.reloadData();
     }
+    
   }
 
 

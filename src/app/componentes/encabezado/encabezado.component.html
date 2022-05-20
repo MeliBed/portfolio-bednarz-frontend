@@ -2,10 +2,9 @@
   <ul>
     <li *ngFor="let encabezado of encabezadoList; let i = index">
   <div class="row edicion"> 
-    <!--<button type="button" class="btn hidden" (click)="onNewEncabezado()"></button>-->
-      <div id="intro" class="container">
+     <div id="intro" class="container">
      <div class="container edicion">
-       <h2>{{encabezado.titulo}} {{encabezado.nombre}}</h2>
+      <h2>{{encabezado.titulo}} {{encabezado.nombre}}</h2>
         <p>
           <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarencabezado" (click)=" onEditarEncabezado(i)"> 
             <img src="https://img.icons8.com/material-outlined/24/ffffff/pencil--v1.png"/>
@@ -50,35 +49,86 @@
         <input type="hidden" formControlName="id" name="encabezadoId" value="">
             <div class="form-group">
             <label for="exampleFormControlInput1">Título</label>
-            <input type="text" class="form-control" formControlName="titulo" placeholder="Título">
+            <input type="text" class="form-control" formControlName="titulo" placeholder="Título"
+            [ngClass]="{'is-invalid': this.encabezadoForm.get('titulo')?.errors && this.encabezadoForm.get('titulo')?.touched, 'is-valid': 
+            !this.encabezadoForm.get('titulo')?.errors && this.encabezadoForm.get('titulo')?.touched }" 
+            class="form-control" required>
+            <div *ngIf="this.encabezadoForm.get('titulo')?.errors && this.encabezadoForm.get('titulo')?.touched">
+                <span *ngIf="this.encabezadoForm.get('titulo')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+                <span *ngIf="this.encabezadoForm.get('titulo')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 2 caracteres.</span>             
+              </div> 
           </div> <br>
           <div class="form-group">
             <label for="exampleFormControlInput1">Nombre</label>
-            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
-          </div><br>
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre"
+            [ngClass]="{'is-invalid': this.encabezadoForm.get('nombre')?.errors && this.encabezadoForm.get('nombre')?.touched, 'is-valid': 
+            !this.encabezadoForm.get('nombre')?.errors && this.encabezadoForm.get('nombre')?.touched }" 
+            class="form-control" required>
+            <div *ngIf="this.encabezadoForm.get('nombre')?.errors && this.encabezadoForm.get('nombre')?.touched">
+                <span *ngIf="this.encabezadoForm.get('nombre')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+                <span *ngIf="this.encabezadoForm.get('nombre')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 3 caracteres.</span>             
+              </div> 
+          </div> <br>
+    
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción personal</label>
-            <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
+            <textarea class="form-control" formControlName="descripcion" rows="3"
+            [ngClass]="{'is-invalid': this.encabezadoForm.get('descripcion')?.errors && this.encabezadoForm.get('descripcion')?.touched, 'is-valid': 
+            !this.encabezadoForm.get('descripcion')?.errors && this.encabezadoForm.get('descripcion')?.touched }" 
+            class="form-control" required> </textarea>
+            <div *ngIf="this.encabezadoForm.get('descripcion')?.errors && this.encabezadoForm.get('descripcion')?.touched">
+                <span *ngIf="this.encabezadoForm.get('descripcion')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+                <span *ngIf="this.encabezadoForm.get('descripcion')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 10 caracteres.</span>             
+              </div> 
           </div><br>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Ubicación</label>
-        <input type="text" class="form-control" formControlName="ubicacion" placeholder="Ubicación">
+        <label for="exampleFormControlInput3">Ubicación</label>
+        <input type="text" class="form-control" formControlName="ubicacion" placeholder="Ubicación"
+        [ngClass]="{'is-invalid': this.encabezadoForm.get('ubicacion')?.errors && this.encabezadoForm.get('ubicacion')?.touched, 'is-valid': 
+            !this.encabezadoForm.get('ubicacion')?.errors && this.encabezadoForm.get('ubicacion')?.touched }" 
+            class="form-control" required> 
+            <div *ngIf="this.encabezadoForm.get('ubicacion')?.errors && this.encabezadoForm.get('ubicacion')?.touched">
+                <span *ngIf="this.encabezadoForm.get('ubicacion')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+                <span *ngIf="this.encabezadoForm.get('ubicacion')?.hasError('minlength')" class="text-danger">El campo debe tener al menos 5 caracteres.</span>             
+              </div> 
       </div> <br>
       <div class="form-group">
         <label for="exampleFormControlInput1">Correo electrónico</label>
-        <input type="email" class="form-control" formControlName="contacto" placeholder="usuario@ejemplo.com">
+        <input type="email" class="form-control" formControlName="contacto" placeholder="usuario@ejemplo.com"
+        [ngClass]="{'is-invalid': this.encabezadoForm.get('contacto')?.errors && 
+        this.encabezadoForm.get('contacto')?.touched, 'is-valid': 
+        !this.encabezadoForm.get('contacto')?.errors && this.encabezadoForm.get('contacto')?.touched }" 
+        class="form-control" required>
+
+        <div *ngIf="this.encabezadoForm.get('contacto')?.errors && this.encabezadoForm.get('contacto')?.touched">
+            <span *ngIf="this.encabezadoForm.get('contacto')?.hasError('required')" class="text-danger">El email es requerido.</span>
+            <span *ngIf="this.encabezadoForm.get('contacto')?.hasError('email')" class="text-danger">El email ingresado no responde al formato esperado.</span>
+        </div>
       </div><br>
       <div class="form-group">
         <label for="exampleFormControlInput1">LinkedIn</label>
-        <input type="text" class="form-control" formControlName="linkedin" placeholder="Cuenta de LinkedIn">
+        <input type="text" class="form-control" formControlName="linkedin" placeholder="Cuenta de LinkedIn"
+        [ngClass]="{'is-invalid': this.encabezadoForm.get('linkedin')?.errors && this.encabezadoForm.get('linkedin')?.touched, 'is-valid': 
+            !this.encabezadoForm.get('linkedin')?.errors && this.encabezadoForm.get('linkedin')?.touched }" 
+            class="form-control" required> 
+            <div *ngIf="this.encabezadoForm.get('linkedin')?.errors && this.encabezadoForm.get('linkedin')?.touched">
+                <span *ngIf="this.encabezadoForm.get('linkedin')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+            </div> 
       </div><br>
       <div class="form-group">
         <label for="exampleFormControlInput1">GitHub</label>
-        <input type="text" class="form-control" formControlName="github" placeholder="Repositorio de GitHub">
+        <input type="text" class="form-control" formControlName="github" placeholder="Repositorio de GitHub"
+        [ngClass]="{'is-invalid': this.encabezadoForm.get('linkedin')?.errors && this.encabezadoForm.get('github')?.touched, 'is-valid': 
+            !this.encabezadoForm.get('github')?.errors && this.encabezadoForm.get('github')?.touched }" 
+            class="form-control" required> 
+            <div *ngIf="this.encabezadoForm.get('github')?.errors && this.encabezadoForm.get('github')?.touched">
+                <span *ngIf="this.encabezadoForm.get('github')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+            </div>               
       </div><br>
+     
      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="encabezadoForm.invalid">Guardar</button>
       </div>
    </form>
       </div>

@@ -15,7 +15,6 @@ export class EducacionComponent implements OnInit {
   educacionLista:Educacion[] = [];
   isUserLogged: Boolean = false;
   educationForm: FormGroup;
-  
   imagenes:string[] = [ "../assets/Imagenes/AP en colores.PNG",
                         "../assets/Imagenes/CodoACodo_Logo.png", 
                         "../assets/Imagenes/logo-filo-uba.jpg",
@@ -91,6 +90,7 @@ export class EducacionComponent implements OnInit {
         }
       )
       }
+      this.reloadData();
   }
   
   onNewEducation() {

@@ -80,6 +80,11 @@ html {
     
   }
   
+  h2{
+    color: bisque;
+    font-weight: bolder;
+   
+  }
   .seccioninterno {
     box-shadow: 2px 2px 7px 1px #454648;
     padding: 3em;

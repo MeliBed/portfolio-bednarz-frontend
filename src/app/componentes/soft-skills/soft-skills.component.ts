@@ -16,6 +16,8 @@ export class SoftSkillsComponent implements OnInit {
   isUserLogged: Boolean = false;
   skillForm: FormGroup;
 
+  nivel:number[] = [10,20,30,40, 50, 60,70,80,90,100];
+
   constructor(
     private datosSkills:SkillsService,
     private autService: AutenticacionService, 
@@ -23,9 +25,9 @@ export class SoftSkillsComponent implements OnInit {
       this.skillForm = this.formBuilder.group({
         id: [''],
         acreditador: ['', [Validators.required, Validators.minLength(2)]],
-        skill: ['', [Validators.required]],
-        denominacion: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
-        nivel: ['', [Validators.required, Validators.minLength(4)]],
+        skill: ['', [Validators.required, Validators.minLength(5)]],
+        denominacion: ['', [Validators.required, Validators.minLength(5)]],
+        nivel: ['', [Validators.required]],
       });
 
      }
@@ -102,5 +104,6 @@ onSubmit (){
       }
     )
   }
+  this.reloadData();
 }
 }
