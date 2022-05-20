@@ -7,7 +7,8 @@
              <h3>EXPERIENCIA LABORAL</h3>            
            </div>
           <div  class="col-lg-3">
-            <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalexperiencia"  (click)="onNewExperiencia()">
+            <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" 
+            data-bs-target="#modalexperiencia"  (click)="onNewExperiencia()">
               <img src="https://img.icons8.com/material-outlined/24/ffffff/add.png"/>
             </button> 
           </div> <!--COL-->  
@@ -17,7 +18,7 @@
            <li *ngFor="let experiencia of experienciaLista; let i = index">
         <div class="row edicion">           
           <div class="col-lg-3">
-            <img [src]="experiencia.logo" height="50" width="150"/>
+            <img [src]="experiencia.logo" height="50px" width="150px"/>
           </div>      
           <div class="col-lg-3">
             <h3>{{experiencia.tarea}}</h3>
@@ -26,11 +27,12 @@
              <p>{{experiencia.descripcion}}</p>
           </div>        
           <div  class="col-lg-3">     
-            <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalexperiencia" (click)="onEditExperiencia(i)">
+            <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" 
+            data-bs-target="#modalexperiencia" (click)="onEditExperiencia(i)">
               <img src="https://img.icons8.com/material-outlined/24/ffffff/pencil--v1.png"/>
             </button> 
-            <button *ngIf="isUserLogged" type="button" class="btn" (click)="onDeleteExperiencia(i)"><img src="https://img.icons8.com/material-outlined/24/ffffff/trash--v1.png"/></button>
-            <!--data-bs-toggle="modal" data-bs-target="#modalborrarexp"-->          
+            <button *ngIf="isUserLogged" type="button" class="btn" (click)="onDeleteExperiencia(i)">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/trash--v1.png"/></button>   
           </div>
             </div> <!--row-->
        <br><hr> <br>
@@ -107,18 +109,24 @@
           </div><br>
           <br>
           <input type="hidden" formControlName="id" name="experienciaId" value="">
-          <div class="form-group">
+           <div class="form-group">
             <label for="exampleFormControlSelect1">Logo de la Institución</label>
-            <select class="form-control" formControlName="logo" id="imagen"
-            [ngClass]="{'is-invalid': this.experienciaForm.get('logo')?.errors && this.experienciaForm.get('logo')?.touched, 'is-valid': 
-            !this.experienciaForm.get('logo')?.errors && this.experienciaForm.get('logo')?.touched }" 
-            class="form-control" required >
-              <option [value]="item" *ngFor="let item of imagenes">{{item}}</option>
+            <select class="form-control" formControlName="logo" 
+            [ngClass]="{'is-invalid': this.experienciaForm.get('imagen')?.errors && 
+            this.experienciaForm.get('imagen')?.touched, 'is-valid': 
+            !this.experienciaForm.get('imagen')?.errors && this.experienciaForm.get('imagen')?.touched }" 
+            class="form-control" required>
+              <option value="../assets/Imagenes/Aapra_Logo.jpg">AAPRA</option>
+              <option value="../assets/Imagenes/CIRUELO.JPG">CIRUELO</option>
+              <option value="../assets/Imagenes/RADAR.JPG">RADAR</option>
+              <option value="../assets/Imagenes/CONICET_Logo.png">CONICET</option>
+              <option value="../assets/Imagenes/MUSEO.PNG">MUSEO</option>
             </select>
             <div *ngIf="this.experienciaForm.get('logo')?.errors && this.experienciaForm.get('logo')?.touched">
               <span *ngIf="this.experienciaForm.get('logo')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
           </div> 
-          </div>
+          </div> 
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-primary" [disabled]="experienciaForm.invalid">Guardar</button>

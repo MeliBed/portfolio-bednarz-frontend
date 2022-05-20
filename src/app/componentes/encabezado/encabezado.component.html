@@ -125,6 +125,20 @@
                 <span *ngIf="this.encabezadoForm.get('github')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
             </div>               
       </div><br>
+      <div class="form-group">
+      <label for="exampleFormControlSelect1">Foto de perfil</label>
+      <select class="form-control" formControlName="foto" 
+      [ngClass]="{'is-invalid': this.encabezadoForm.get('foto')?.errors && 
+      this.encabezadoForm.get('foto')?.touched, 'is-valid': 
+      !this.encabezadoForm.get('foto')?.errors && this.encabezadoForm.get('foto')?.touched }" 
+      class="form-control" required>
+        <option value="../assets/Imagenes/Avatar.jpg">Foto 1</option>
+        <option value="../assets/Imagenes/Avatar3.jpg">Foto 2</option>
+       </select>
+      <div *ngIf="this.encabezadoForm.get('foto')?.errors && this.encabezadoForm.get('foto')?.touched">
+        <span *ngIf="this.encabezadoForm.get('foto')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
+    </div> 
+    </div> 
      
      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

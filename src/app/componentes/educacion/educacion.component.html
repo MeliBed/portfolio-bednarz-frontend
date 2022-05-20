@@ -17,7 +17,7 @@
            <li *ngFor="let educacion of educacionLista; let i = index">
          <div class="row edicion">   
            <div class="col-lg-3">
-             <img [src]="educacion.logo" height="50" width="150"/>
+             <img [src]="educacion.logo" height="50px" width="150px"/>
            </div> <!--col-->  
            <div class="col-lg-3">
              <h4>{{educacion.institucion}}</h4>
@@ -101,9 +101,14 @@
             [ngClass]="{'is-invalid': this.educationForm.get('logo')?.errors && this.educationForm.get('logo')?.touched, 'is-valid': 
             !this.educationForm.get('logo')?.errors && this.educationForm.get('logo')?.touched }" 
             class="form-control" required>
-              <option [value]="item" *ngFor="let item of imagenes">{{item}}</option>
-            </select>
-            <div *ngIf="this.educationForm.get('logo')?.errors && this.educationForm.get('logo')?.touched">
+            <option value="../assets/Imagenes/AP en colores.PNG">ARGENTINA PROGRAMA</option>
+            <option value="../assets/Imagenes/CodoACodo_Logo.png">CODO A CODO</option>
+            <option value="../assets/Imagenes/logo-filo-uba.jpg">FILOSOFÍA Y LETRAS</option>
+            <option value="../assets/Imagenes/UTN_Logo.png">UTN</option>
+            <option value="../assets/Imagenes/UTN_FRT_Logo.png">UTN FRT</option>
+          </select>
+
+                 <div *ngIf="this.educationForm.get('logo')?.errors && this.educationForm.get('logo')?.touched">
               <span *ngIf="this.educationForm.get('logo')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
           </div> 
           </div>

@@ -7,7 +7,8 @@
           <h3>PROYECTOS</h3>
         </div>
         <div class="col-lg-3">
-          <button *ngIf="isUserLogged"  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalproyectos" (click)="onNewProyecto()">
+          <button *ngIf="isUserLogged"  type="button" class="btn" data-bs-toggle="modal" 
+          data-bs-target="#modalproyectos" (click)="onNewProyecto()">
             <img src="https://img.icons8.com/material-outlined/24/ffffff/add.png"/></button>  
         </div> <!--COL-->  
        </div> <!--row-->
@@ -16,18 +17,19 @@
         <li *ngFor="let proyecto of proyectosLista; let i = index">
       <div class="row edicion">
         <div class="col-lg-3">
-          <p><a href={{proyecto.link}} target="_blank"><img class="img-fluid" [src]="proyecto.imagen" alt=""></a></p>
+          <p><a href={{proyecto.link}} target="_blank"><img class="img-fluid" [src]="proyecto.imagen" alt="" height="100" width="200"></a></p>
         </div>
         <div class="col-lg-3">
           <h3>{{proyecto.titulo}}</h3>
           <h4>{{proyecto.descripcion}}<br/><br/></h4>
         </div> 
         <div  class="col-lg-3"> 
-          <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalproyectos" (click)="onEditProyecto(i)">
+          <button *ngIf="isUserLogged" type="button" class="btn" data-bs-toggle="modal" 
+          data-bs-target="#modalproyectos" (click)="onEditProyecto(i)">
             <img src="https://img.icons8.com/material-outlined/24/ffffff/pencil--v1.png"/>
           </button> 
-          <button *ngIf="isUserLogged" type="button" class="btn" (click)="onDeleteProyecto(i)"><img src="https://img.icons8.com/material-outlined/24/ffffff/trash--v1.png"/></button> 
-        <!--data-bs-toggle="modal" data-bs-target="#modalborrarpro"-->
+          <button *ngIf="isUserLogged" type="button" class="btn" (click)="onDeleteProyecto(i)">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/trash--v1.png"/></button> 
         </div>
       </div> <!--/.row -->
       <br><hr><br>
@@ -87,8 +89,12 @@
               [ngClass]="{'is-invalid': this.proyectoForm.get('imagen')?.errors && this.proyectoForm.get('imagen')?.touched, 'is-valid': 
               !this.proyectoForm.get('imagen')?.errors && this.proyectoForm.get('imagen')?.touched }" 
               class="form-control" required>
-               <option [value]="item" *ngFor="let item of imagenes">{{item}}</option>
-              </select>
+              <option value="../assets/Imagenes/Index_CodoACodo.PNG">GICA</option>
+              <!--<option value="../assets/Imagenes/CIRUELO.JPG">CIRUELO</option>
+              <option value="../assets/Imagenes/RADAR.JPG">RADAR</option>
+              <option value="../assets/Imagenes/CONICET_Logo.png">CONICET</option>
+              <option value="../assets/Imagenes/MUSEO.PNG">MUSEO</option>-->
+            </select>
               <div *ngIf="this.proyectoForm.get('imagen')?.errors && this.proyectoForm.get('imagen')?.touched">
                 <span *ngIf="this.proyectoForm.get('imagen')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  
                  </div> 

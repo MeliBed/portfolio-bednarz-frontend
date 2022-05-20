@@ -14,7 +14,7 @@ export class ProyectosComponent implements OnInit {
   proyectosLista:Proyecto [] = [];
   isUserLogged: Boolean = false;
   proyectoForm: FormGroup;
-  imagenes:string[] = ["../assets/Imagenes/Index_CodoACodo.PNGg"];
+
 
   constructor(
     private datosProyectos:ProyectosService,

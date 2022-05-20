@@ -15,12 +15,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   experienciaLista:Experiencia [] = [];
   isUserLogged: Boolean = false;
   experienciaForm: FormGroup;
-  imagenes:string[] = ["../assets/Imagenes/Aapra_Logo.jpg",
-                       "../assets/Imagenes/CIRUELO.JPG", 
-                       "../assets/Imagenes/RADAR.JPG",
-                       "../assets/Imagenes/CONICET_Logo.png",
-                       "../assets/Imagenes/MUSEO.PNG"];
-
+ 
 
   constructor(private datosExperiencia:ExperienciaService,
               private autService: AutenticacionService,
