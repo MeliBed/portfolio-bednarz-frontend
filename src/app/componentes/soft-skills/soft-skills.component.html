@@ -90,7 +90,17 @@
               [ngClass]="{'is-invalid': this.skillForm.get('nivel')?.errors && this.skillForm.get('nivel')?.touched, 'is-valid': 
               !this.skillForm.get('nivel')?.errors && this.skillForm.get('nivel')?.touched }" 
               class="form-control" required>
-                <option [value]="item" *ngFor="let item of nivel">{{item}}</option>
+              <option value=10>1</option>
+              <option value=20>2</option>
+              <option value=30>3</option>
+              <option value=40>4</option>
+              <option value=50>5</option>
+              <option value=60>6</option>
+              <option value=70>7</option>
+              <option value=80>8</option>
+              <option value=90>9</option>
+              <option value=100>10</option>
+              
               </select>
               <div *ngIf="this.skillForm.get('nivel')?.errors && this.skillForm.get('nivel')?.touched">
                 <span *ngIf="this.skillForm.get('nivel')?.hasError('required')" class="text-danger">El campo es obligatorio.</span>  

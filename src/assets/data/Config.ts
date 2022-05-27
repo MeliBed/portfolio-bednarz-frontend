@@ -1,3 +1,8 @@
 export const config = {
-    baseUrl: "http://localhost:8080/"
+    baseUrl: "https://lit-basin-36485.herokuapp.com/"
 }
+
+
+
+/*http://localhost:8080/*/
+
