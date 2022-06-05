@@ -1,5 +1,5 @@
 export const config = {
-    baseUrl: "https://protected-sierra-60397.herokuapp.com/"
+    baseUrl: "https://protected-sierra-60397.herokuapp.com"
 }
 
 

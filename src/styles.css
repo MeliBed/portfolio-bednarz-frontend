@@ -68,7 +68,7 @@ html {
   section {
     display: flex;
     align-self: center;
-    margin-left: 5em;
+    margin-left: 1em;
     margin-bottom: 2em;
     margin-top: 2em;
     padding: 5%;
@@ -120,4 +120,10 @@ html {
     font-family: 'Kanit', sans-serif;
     font-size: 4em;
   }
+
+  .estilo {
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px 1px #454648;
+
+}
 
